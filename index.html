@@ -3,7 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>NPTEL Verification </title>
+  <title>NPTEL Verification</title>
+
+  <!-- ✅ Favicon -->
+  <!-- <link rel="icon" type="image/png" href="favicon.png" /> -->
+
   <style>
     * {
       margin: 0;
@@ -37,9 +41,27 @@
   </style>
 </head>
 <body>
-  <!-- Link that opens in a new tab and downloads the file -->
-  <a href="NPTEL25CS51S3530300225.pdf" target="_blank" download id="btn">
-    Course Certificate
-  </a>
+
+  <!-- ✅ Button triggers JS function -->
+  <button id="btn" onclick="openAndDownload()">Course Certificate</button>
+
+  <script>
+    function openAndDownload() {
+      const url = 'NPTEL25CS51S3530300225.pdf';
+
+      // Open in same tab
+      window.location.href = url;
+
+      // Trigger download
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'NPTEL25CS51S3530300225.pdf';
+      a.style.display = 'none';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }
+  </script>
+
 </body>
 </html>
